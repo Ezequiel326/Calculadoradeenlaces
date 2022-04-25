@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Calculadora de enlaces</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+
+<div class="contenedor">
+
+
+<h1 class="titulo" style="font-size:40px">Calculadora de enlaces</h1>
+  
+  <form name="registro" class="registro">
+    <table   class="tabla__int" >
+      
+    <tr >
+      <td class="textimp1">Elementos:</td><td><input type="text" name="elementos" id="elementos" class="imp1" placeholder="Ejemplo: H,H,O"></td>
+    </tr>
+
+    <tr>
+      <td class="textimp2">Añade o elimina electrones:</td><td><input type="text" name="ion" id="ion" class="imp2" placeholder="Añadir solo el número"></td>
+    
+    </tr>
+
+    
+    </tr><br/>
+
+  <table class="boton">
+    <tr>
+      <td colspan "10"><input type="button" name="btn1" value="Calcular" onclick="obtenerdatos()" class="boton1"></td>
+      
+    </tr>
+  </table>
+      
+    </table><br/><br/><br/>
+
+
+
+    <table  class="tabla__out">
+
+      <tr>
+      <td class="text3">Pares enlazantes:</td><td><input type="text"  name="paresenlazantes" id="paresenlazantes" class="inp3"></td>
+
+        
+      </tr>
+
+      <tr>
+        <td class="text4">Electrones solitarios:</td><td><input type="text" name="paresnoenlazantes" id="paresnoenlazantes" class="inp4"></td>
+
+      </tr>
+      
+      
+    </table>
+
+
+    
+  </form>
+
+
+  
+
+
+</div>
+  
+<script>
+
+
+function obtenerdatos() {
+
+
+  //selecciona los datos de los elementos
+	var int= document.getElementById("elementos").value;
+
+	var comp= int.split(",");
+
+
+	var ion= document.getElementById("ion").value;
+
+
+
+	//retorna ion como una cadena
+	var ionTwo= ion;
+
+	//convierte los numeros de los iones a array
+	var ionArray=ion.toString().split('');
+
+
+
+	//devuelve el signo
+	var ionSigno=ionArray.pop();
+
+
+
+	//devuelve los números
+	var ionJun=ionArray.join('');
+
+
+
+
+	//convierte la cadena en numero
+
+	var evaluar= Number(ionJun);
+
+	var ionNum= evaluar;
+
+//datos contadores
+var oct =0;
+var numE=0;
+
+//ciclo
+for (let i = 0; i < 9; i++) {
+
+  //comparador
+  {
+  if(comp[i] === "Li"||comp[i] ==="Na"||comp[i] ==="K"||comp[i] ==="Rb"||comp[i] ==="Cs"||comp[i] ==="Fr"||comp[i] ==="Ce"||comp[i] ==="Th" ){
+
+  numE = numE+1;
+  oct =oct+8;
+    //grupo 1
+
+
+  }else if(comp[i] ==="Be"|| comp[i] ==="Mg"||comp[i] ==="Ca"||comp[i] ==="Sr"||comp[i] ==="Ba"||comp[i] ==="Ra"||comp[i] ==="Pr"|| comp[i] ==="Pa"){
+
+    numE= numE+2;
+    oct =oct+8;
+
+    //grupo2
+
+    
+  }else if(comp[i]==="Sc"||comp[i]==="Y"||comp[i]==="La"||comp[i]==="Ac"||comp[i]==="Nd"||comp[i]==="U"){
+
+
+    numE= numE+2;
+    oct =oct+8;
+
+    //grupo 3
+
+    
+  }else if(comp[i]==="Ti"||comp[i]==="Zr"||comp[i]==="Hf"||comp[i]==="Rf"||comp[i]==="Pm"||comp[i]==="Np"){
+
+    numE= numE+2;
+    oct =oct+8;
+
+//grupo 4
+    
+  }else if(comp[i]==="V"||comp[i]==="Nb"||comp[i]==="Ta"||comp[i]==="Db"||comp[i]==="Sm"||comp[i]==="Pu"){
+
+      numE= numE+2;
+        oct =oct+8;
+
+      //grupo 5
+
+
+    
+  }else if(comp[i]==="Cr"||comp[i]==="Mo"||comp[i]==="W"||comp[i]==="Sg"||comp[i]==="Eu"||comp[i]==="Am"){
+
+
+      numE= numE+2;
+        oct =oct+8;
+
+      //grupo 6
+    
+  }else if(comp[i]==="Mn"||comp[i]==="Tc"||comp[i]==="Re"||comp[i]==="Bh"||comp[i]==="Gd"||comp[i]==="Cm"){
+
+
+
+        numE= numE+2;
+        oct =oct+8;
+
+      //grupo 7
+    
+  }else if(comp[i]==="Fe"||comp[i]==="Ru"||comp[i]==="Os"||comp[i]==="Hs"||comp[i]==="Tb"||comp[i]==="Bk"){
+
+
+
+numE= numE+2;
+    oct =oct+8;
+      //grupo 8
+    
+  }else if(comp[i]==="Co"||comp[i]==="Rh"||comp[i]==="Ir"||comp[i]==="Mt"||comp[i]==="Dy"||comp[i]==="Cf"){
+
+
+
+numE= numE+2;
+    oct =oct+8;
+      //grupo 9
+    
+  }else if(comp[i]==="Ni"||comp[i]==="Pd"||comp[i]==="Pt"||comp[i]==="Ds"||comp[i]==="Ho"||comp[i]==="Es"){
+
+
+    numE= numE+2;
+    oct =oct+8;
+    //grupo 10
+
+    
+  }else if(comp[i]==="Cu"||comp[i]==="Ag"||comp[i]==="Au"||comp[i]==="Rg"||comp[i]==="Er"||comp[i]==="Fm"){
+
+
+    numE= numE+2;
+    oct =oct+8;
+    //grupo 11
+
+    
+  }else if(comp[i]==="Zn"||comp[i]==="Cd"||comp[i]==="Hg"||comp[i]==="Cn"||comp[i]==="Tm"||comp[i]==="Md"){
+
+
+    numE= numE+2;
+    oct =oct+8;
+    //grupo 12
+
+    
+  }else if(comp[i]==="B"||comp[i]==="Al"||comp[i]==="Ga"||comp[i]==="In"||comp[i]==="Tl"||comp[i]==="Uut"||comp[i]==="Yb"||comp[i]==="No"){
+
+
+
+
+    numE= numE+3;
+    oct =oct+8;
+    //grupo 13
+
+    
+  }else if(comp[i]==="C"||comp[i]==="Si"||comp[i]==="Ge"||comp[i]==="Sn"||comp[i]==="Pb"||comp[i]==="Fl"||comp[i]==="Lu"||comp[i]==="Lr"){
+
+
+
+
+    numE= numE+4;
+    oct =oct+8;
+    //grupo 14
+
+    
+  }else if(comp[i]==="N"||comp[i]==="P"||comp[i]==="As"||comp[i]==="Sb"||comp[i]==="Bi"||comp[i]==="Uup"){
+
+
+
+
+    numE= numE+5;
+    oct =oct+8;
+    //grupo 15
+
+    
+  }else if(comp[i]==="O"||comp[i]==="S"||comp[i]==="Se"||comp[i]==="Te"||comp[i]==="Po"||comp[i]==="Lv"){
+
+
+
+
+    numE= numE+6;
+    oct =oct+8;
+    //grupo 16
+
+    
+  }else if(comp[i]==="F"||comp[i]==="Cl"||comp[i]==="Br"||comp[i]==="I"||comp[i]==="At"||comp[i]==="Uus"){
+
+
+
+
+    numE= numE+7;
+    oct =oct+8;
+    //grupo 17
+
+    
+  }else if(comp[i]==="Ne"||comp[i]==="Ar"||comp[i]==="Kr"||comp[i]==="Xe"||comp[i]==="Rn"||comp[i]==="Uuo"){
+
+
+
+
+    numE= numE+8;
+    oct =oct+8;
+    //grupo 18
+
+    
+  }else if(comp[i]==="H"){
+
+  
+    numE= numE+1;
+    oct =oct+2;
+    
+  }else if(comp[i]==="He"){
+
+
+    
+     numE= numE+8;
+     oct =oct+2;
+
+    
+  }
+
+
+  }
+
+
+  
+}
+  
+
+  if (ionSigno === "-") {  
+
+  	var resultado= numE + ionNum;
+
+  	//console.log('hola mundo')
+}else if (ionSigno ==="+") {
+
+	var resultado= numE - ionNum;
+
+
+}else{
+
+
+var resultado= numE;
+
+}
+
+  //var resultado= numE + ionNum;
+  var enlazantesNo= oct-resultado;
+  var enlazantes = enlazantesNo/2;
+  var noenlazantes= resultado - enlazantesNo;
+
+
+
+//retorna  
+  document.registro.paresenlazantes.value=enlazantes;
+  document.registro.paresnoenlazantes.value=noenlazantes;
+
+
+
+
+//para comprobar errores
+console.log(resultado);
+  
+}
+
+
+
+
+    
+  </script>
+</body>
+
+</html>
